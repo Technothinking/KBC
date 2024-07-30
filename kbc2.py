@@ -27,10 +27,17 @@ for i in range(len(questions_and_options)):
     print(f"c.{q[3]}         d.{q[4]}")
     ans = input("Enter your option or press 0 to quit:")
     if(ans=="0"):
-        print("You quit the game")
-        money = prize[i-1]
-        print("You've won Rs",money)
-        break
+        if(n==0):
+            print("You quit the game")
+            print(f"You answered no questions")
+            print("Your prize is 0 Rs")
+            break
+        else:
+            money = prize[i-1]
+            print("You quit the game")
+            print("You answered {n} question(s)")
+            print("You've won Rs",money)
+            break
     elif(ans.lower()==q[-1]):
         print(f"\nRight answer, you won Rs{prize[i]}\n")
         if(i==4):
